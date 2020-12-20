@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="@string/logout"
+        android:id="@+id/logout" />
+
+    <item android:title="@string/view_medicine_log"
+        android:id="@+id/view_medicine_log"/>
+
+    <item android:title="@string/add_patient_image"
+    android:id="@+id/add_patient_image" />
+
+</menu>
