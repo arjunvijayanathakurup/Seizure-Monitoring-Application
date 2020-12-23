@@ -21,6 +21,11 @@
     <string name="logout">Logout</string>
     <string name="view_medicine_log">View medicine change log</string>
     <string name="add_patient_image">Add patient image</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="seizure_occurance">Seizure Occurrence</string>
+    <string name="timedate">Time &amp; Date</string>
+    <string name="seizureduration">Seizure Duration (mins)</string>
+    <string name="typeofseizure">Type of Seizure</string>
+    <string name="notefordoctor">Note for Doctor</string>
+    <string name="medicine">Medicine</string>
 </resources>

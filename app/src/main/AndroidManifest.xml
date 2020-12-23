@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".DashboardMain"></activity>
+        <activity android:name=".ViewMetrics"></activity>
+        <activity android:name=".ViewMedication" />
+        <activity android:name=".AddSeizure" />
+        <activity android:name=".DashboardMain" />
         <activity android:name=".Login" />
         <activity android:name=".LoginSignup" />
         <activity android:name=".MainActivity">

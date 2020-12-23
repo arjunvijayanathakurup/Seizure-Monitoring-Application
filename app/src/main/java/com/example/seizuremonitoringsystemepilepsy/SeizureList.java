@@ -2,63 +2,46 @@ package com.example.seizuremonitoringsystemepilepsy;
 
 import android.os.Bundle;
 
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link SeizureList#newInstance} factory method to
- * create an instance of this fragment.
- */
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.ListFragment;
+
+import java.util.ArrayList;
+
 public class SeizureList extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
+    private ListView listView;
+    private ArrayList<Seizures> seizureItem;
+    private CustomSeizureAdapter customSeizureAdapter;
+    private String MESSAGE = "Seizure Occurrence";
+    private  String NONMESSAGE = "No Seizures";
     public SeizureList() {
         // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment SeizureList.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static SeizureList newInstance(String param1, String param2) {
-        SeizureList fragment = new SeizureList();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+        seizureItem = new ArrayList<>();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_seizure_list, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_seizure_list, container, false);
+        listView = (ListView)rootView.findViewById(R.id.list);
+//        seizureItem.add(new Seizures(R.drawable.red, "01", "Jan", "00:00", "00:00", NONMESSAGE));
+        seizureItem.add(new Seizures(R.drawable.red, "01", "Dec", "19:20", "19:40", MESSAGE));
+        seizureItem.add(new Seizures(R.drawable.yellow, "05", "Jan", "10:20", "10:30", MESSAGE));
+//        seizureItem.add(new Seizures(R.drawable.green, "06", "Feb", "04:20", "04:22", MESSAGE));
+//        seizureItem.add(new Seizures(R.drawable.red, "07", "Mar", "07:20", "07:40", MESSAGE));
+//        seizureItem.add(new Seizures(R.drawable.yellow, "18", "Apr", "22:20", "22:30", MESSAGE));
+//        seizureItem.add(new Seizures(R.drawable.green, "22", "May", "23:20", "23:22", MESSAGE));
+        customSeizureAdapter = new CustomSeizureAdapter(getActivity(), R.layout.custom_seizure_list, seizureItem);
+        listView.setAdapter(customSeizureAdapter);
+        return rootView;
     }
 }
